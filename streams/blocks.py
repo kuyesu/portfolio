@@ -13,7 +13,8 @@ class RogersBio(blocks.StructBlock):
     role = blocks.ListBlock(
         blocks.StructBlock(
             [
-                ("role", blocks.StructBlock(required=True, max_length=20)),
+                ("role", blocks.CharBlock(required=True, max_length=20)),
+                ("email", blocks.EmailBlock(required=True))
             ]
         )
     )
@@ -31,7 +32,7 @@ class PersonalData(blocks.StructBlock):
             [
                 ("residence", blocks.CharBlock(required=True, max_length=15)),
                 ("city", blocks.CharBlock(required=True, max_length=15)),
-                ("age", blocks.CharBlock(required=True, max_length=2)),
+                ("age", blocks.IntegerBlock(max_value=20)),
             ]
         )
     )
@@ -39,7 +40,7 @@ class PersonalData(blocks.StructBlock):
     language = blocks.ListBlock(
         blocks.StructBlock(
             [
-                ("lang", blocks.CharBlock(required=True, max_length=15)),
+                ("language", blocks.CharBlock(required=True, max_length=15)),
             ]
         )
     )
@@ -53,7 +54,7 @@ class PersonalData(blocks.StructBlock):
     )
     class Meta:
         template = "streams/personal_data.html"
-        icon = ""
+        icon = "user"
         label = "Personal Info"
     
     
@@ -62,7 +63,7 @@ class RecordsData(blocks.StructBlock):
         blocks.StructBlock(
             [
                 ("record", blocks.CharBlock(required=True, max_length=20)),
-                ("period", blocks.CharBlock(required=True, max_length=3)),
+                ("period", blocks.IntegerBlock(max_value=20)),
             ]
         )
     )
@@ -80,7 +81,7 @@ class MyServices(blocks.StructBlock):
         blocks.StructBlock(
             [
                 ("service", blocks.CharBlock(required=True, max_length=30)),
-                ("descript", blocks.CharBlock(required = True, max_length=150)),
+                ("description", blocks.CharBlock(required = True, max_length=150)),
                 (
                     "button_url",
                     blocks.URLBlock(
@@ -134,7 +135,7 @@ class Recommendations(blocks.StructBlock):
                 ("Job_Title", blocks.CharBlock(required=True, max_length=45)),
                 ("Photo", ImageChooserBlock(required=True)),
                 ("Stament", blocks.CharBlock(required=True, max_length=45)),
-                ("star", blocks.CharBlock(required=True, max_length=5))
+                ("star", blocks.IntegerBlock(max_value=5))
             ]
         )
     )
@@ -158,3 +159,134 @@ class Organisations(blocks.StructBlock):
         template = "streams/org.html"
         icon = "edit"
         label = "Organisation Logo"
+        
+class Experience(blocks.StructBlock):
+    title = blocks.CharBlock(required=True, max_length=50)
+    
+    experience = blocks.ListBlock(
+        blocks.StructBlock(
+            [
+                ("role", blocks.CharBlock(required=True, max_length=60)),
+                ("company", blocks.CharBlock(required=True, max_length=70)),
+                ("job_description", blocks.CharBlock(required=True, max_length=50)),
+                ("year", blocks.CharBlock(required=True, max_length=50)),
+                ("location", blocks.CharBlock(required=True, max_length=50)),
+            ]
+        )
+    )
+    
+    class Meta:
+        template = "streams/experience.html"
+        icon = "edit"
+        label = "Experience"
+        
+        
+class Education(blocks.StructBlock):
+    title = blocks.CharBlock(required=True, max_length=50)
+    
+    education = blocks.ListBlock(
+        blocks.StructBlock(
+            [
+                ("institution", blocks.CharBlock(required=True, max_length=100)),
+                ("course", blocks.CharBlock(required=True, max_length=100)),
+                ("year", blocks.CharBlock(required=True, max_length=10)),
+            ]
+        )
+    )
+    class Meta:
+        template = "streams/education.html"
+        icon = "edit"
+        label = "Education"
+        
+class LicenseAndCert(blocks.StructBlock):
+    title = blocks.CharBlock(required=True, max_length=50)
+    
+    Lisence_and_Certificate = blocks.ListBlock(
+        blocks.StructBlock(
+            [
+                ("certificate", blocks.CharBlock(required=True, max_length=100)),
+                ("certified_by", blocks.CharBlock(required=True, max_length=100)),
+                ("issued_on", blocks.DateBlock(required=True)),
+                ("Expiry_Date", blocks.DateBlock(required=False)),
+                ("No_Expiry", blocks.CharBlock(required=False)),
+                ("Credential_Id", blocks.CharBlock(required=True, max_length=100)),
+                ("URL", blocks.URLBlock(required=False))
+            ]
+        )
+    )
+    
+    class Meta:
+        template = "streams/licenseandcert.html"
+        icon = "edit"
+        label = "License and Certificates"
+        
+        
+class Skills(blocks.StructBlock):
+    title = blocks.CharBlock(required=True, max_length=50)
+     
+    skills = blocks.ListBlock(
+        blocks.StructBlock(
+            [
+                ("skills", blocks.CharBlock(required=True, max_length=100)),
+                ("level", blocks.CharBlock(required=True, max_length=100)),
+            ]
+        )
+    )
+    class Meta:
+        template = "streams/skills.html"
+        icon = "edit"
+        label = "My Skills"
+
+
+class Accomplishement(blocks.StructBlock):
+    title = blocks.CharBlock(required=True, max_length=50)
+     
+    Accomplishments = blocks.ListBlock(
+        blocks.StructBlock(
+            [
+                ("project", blocks.CharBlock(required=True, max_length=100)),
+                ("date", blocks.DateBlock(required=True)),
+                ("detail", blocks.CharBlock(required=True, max_length=100))
+            ]
+        )
+    )
+    class Meta:
+        template = "streams/accomplishment.html"
+        icon = "edit"
+        label = "Accomplishement"
+        
+        
+
+class Award(blocks.StructBlock):
+    title = blocks.CharBlock(required=True, max_length=50)
+     
+    award = blocks.ListBlock(
+        blocks.StructBlock(
+            [
+                ("project", blocks.CharBlock(required=True, max_length=100)),
+                ("date", blocks.DateBlock(required=True)),
+                ("detail", blocks.CharBlock(required=True, max_length=100))
+            ]
+        )
+    )
+    class Meta:
+        template = "streams/award.html"
+        icon = "edit"
+        label = "Award"
+        
+
+class Interests(blocks.StructBlock):
+    title = blocks.CharBlock(required=True, max_length=50)
+     
+    Interests = blocks.ListBlock(
+        blocks.StructBlock(
+            [
+                ("interes", blocks.CharBlock(required=True, max_length=100)),
+                
+            ]
+        )
+    )
+    class Meta:
+        template = "streams/interest.html"
+        icon = "edit"
+        label = "Interest"
