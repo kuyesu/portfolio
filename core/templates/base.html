@@ -14,13 +14,29 @@
                 {% endwith %}
             {% endblock %}
         </title>
-        <meta name="description" content="" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- color of address bar in mobile browser -->
+        <meta name="theme-color" content="#2B2B35">
+        <!-- favicon  -->
+        <link rel="shortcut icon" href="{% static 'img/thumbnail.ico' %}" type="image/x-icon">
+        
 
         {# Global stylesheets #}
         <link rel="stylesheet" type="text/css" href="{% static 'css/core.css' %}">
+        <!-- bootstrap css -->
+        <link rel="stylesheet" href="{% static 'css/plugins/bootstrap.min.css' %}">
+        <!-- font awesome css -->
+        <link rel="stylesheet" href="{% static 'css/plugins/font-awesome.min.css' %}">
+        <!-- swiper css -->
+        <link rel="stylesheet" href="{% static 'css/plugins/swiper.min.css' %}">
+        <!-- fancybox css -->
+        <link rel="stylesheet" href="{% static 'css/plugins/fancybox.min.css' %}">
+        <!-- main css -->
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
         {% block extra_css %}
+       
             {# Override this in templates to add extra stylesheets #}
         {% endblock %}
     </head>
@@ -31,9 +47,34 @@
         {% block content %}{% endblock %}
 
         {# Global javascript #}
+       
+         <!-- jquery js -->
+        <script src="{% static 'js/plugins/jquery.min.js' %}"></script>
+        <!-- anime js -->
+        <script src="{% static 'js/plugins/anime.min.js' %}"></script>
+        <!-- swiper js -->
+        <script src="{% static 'js/plugins/swiper.min.js' %}"></script>
+        <!-- progressbar js -->
+        <script src="{% static 'js/plugins/progressbar.min.js' %}"></script>
+        <!-- smooth scrollbar js -->
+        <script src="{% static 'js/plugins/smooth-scrollbar.min.js' %}"></script>
+        <!-- overscroll js -->
+        <script src="{% static 'js/plugins/overscroll.min.js' %}"></script>
+        <!-- typing js -->
+        <script src="{% static 'js/plugins/typing.min.js' %}"></script>
+        <!-- isotope js -->
+        <script src="{% static 'js/plugins/isotope.min.js' %}"></script>
+        <!-- fancybox js -->
+        <script src="{% static 'js/plugins/fancybox.min.js' %}"></script>
+        <!-- swup js -->
+        <script src="{% static 'js/plugins/swup.min.js' %}"></script>
+
+        <!-- main js -->
+        <script src="{% static 'js/main.js' %}"></script>
         <script type="text/javascript" src="{% static 'js/core.js' %}"></script>
 
         {% block extra_js %}
+        
             {# Override this in templates to add extra javascript #}
         {% endblock %}
     </body>

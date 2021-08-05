@@ -20,7 +20,15 @@ class HomePage(Page):
     template = "home/home_page.html"
     
     banner_title = models.CharField(max_length=30, blank=False, null=True)
+    banner_title_two = models.CharField(max_length=30, blank=False, null=True)
     banner_subtitle = RichTextField(features=["bold", "italic", "link"], blank = False, null=True)
+    photo = ForeignKey(
+        'wagtailimages.Image',
+        blank=False,
+        null = True,
+        on_delete = models.SET_NULL,
+        related_name = "+"
+    )
     banner_image = ForeignKey(
         'wagtailimages.Image',
         blank=False,
@@ -100,6 +108,8 @@ class HomePage(Page):
         MultiFieldPanel(
             [
                 FieldPanel("banner_title"),
+                FieldPanel("banner_title_two"),
+                ImageChooserPanel("photo"),
                 FieldPanel("banner_subtitle"),
                 ImageChooserPanel("banner_image"),
                 PageChooserPanel("banner_cta"),

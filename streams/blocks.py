@@ -52,6 +52,9 @@ class PersonalData(blocks.StructBlock):
             ]
         )
     )
+    
+    
+    # @todo download
     class Meta:
         template = "streams/personal_data.html"
         icon = "user"
