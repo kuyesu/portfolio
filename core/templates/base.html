@@ -1,4 +1,9 @@
 {% load static wagtailuserbar %}
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load wagtailadmin_tags %}
+
+{% load static wagtailimages_tags %}
+
 
 <!DOCTYPE html>
 <html class="no-js" lang="en">
@@ -44,8 +49,17 @@
     <body class="{% block body_class %}{% endblock %}">
         {% wagtailuserbar %}
 
-        {% block content %}{% endblock %}
 
+
+       
+    {% block content %}{% endblock %}
+       
+
+
+
+        
+
+  
         {# Global javascript #}
        
          <!-- jquery js -->

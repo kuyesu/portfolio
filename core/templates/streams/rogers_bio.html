@@ -1,8 +1,11 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load wagtailadmin_tags %}
 <div class="art-header">
     <!-- avatar -->
     <div class="art-avatar">
-    <a data-fancybox="avatar" href="img/face-1.jpg" class="art-avatar-curtain">
-        <img src="img/face-1.jpg" alt="avatar">
+    {% image self.bio_image fill-320x320 as  img %}
+    <a data-fancybox="avatar" href="{{ img.url }}" class="art-avatar-curtain">
+        <img src="{{img.url}}" alt="{{img.alt}}">
         <i class="fas fa-expand"></i>
     </a>
     <!-- available -->
@@ -13,7 +16,9 @@
     </div>
     <!-- avatar end -->
     <!-- name -->
-    <h5 class="art-name mb-10"><a href="/nazar/arter-demo/home.html">Artur Carter</a></h5>
+    <h5 class="art-name mb-10"><a href="#/nazar/arter-demo/home.html">{{ self.first_name }} {{ self.last_name }}</a></h5>
     <!-- post -->
-    <div class="art-sm-text">Front-end Deweloper <br>Ui/UX Designer, </div>
+    {% for roles in self.role %}
+    <div class="art-sm-text">{{roles.my_role}}<br>{{ roles.email }}</div>
+    {% endfor %}
 </div>

@@ -1,0 +1,52 @@
+ <!-- info bar -->
+        <div class="art-info-bar">
+
+          <!-- menu bar frame -->
+          <div class="art-info-bar-frame">
+
+            <!-- info bar header -->
+            <div class="art-info-bar-header">
+              <!-- info bar button -->
+              <a class="art-info-bar-btn" href="#.">
+                <!-- icon -->
+                <i class="fas fa-ellipsis-v"></i>
+              </a>
+              <!-- info bar button end -->
+            </div>
+            <!-- info bar header end -->
+
+            <!-- info bar header -->
+            {% for block in self.bio %}
+              {% include_block block %}
+            {% endfor %}
+            <!-- info bar header end -->
+
+            <!-- scroll frame -->
+            <div id="scrollbar2" class="art-scroll-frame">
+            
+            {% for block in self.persoanl_data %}
+              {% include_block block %}
+            {% endfor %}
+            </div>            
+            <!-- scroll frame end -->
+
+            <!-- sidebar social -->
+            <div class="art-ls-social">
+              <!-- social link -->
+              <a href="#." target="_blank"><i class="fab fa-linkedin-in"></i></a>
+              <!-- social link -->
+              <a href="#." target="_blank"><i class="fab fa-dribbble"></i></a>
+              <!-- social link -->
+              <a href="#." target="_blank"><i class="fab fa-behance"></i></a>
+              <!-- social link -->
+              <a href="#." target="_blank"><i class="fab fa-github"></i></a>
+              <!-- social link -->
+              <a href="#." target="_blank"><i class="fab fa-twitter"></i></a>
+            </div>
+            <!-- sidebar social end -->
+
+          </div>
+          <!-- menu bar frame end -->
+
+        </div>
+        <!-- info bar end -->
