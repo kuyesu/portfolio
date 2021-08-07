@@ -6,19 +6,8 @@
 
 
 <!DOCTYPE html>
-<html class="no-js" lang="en">
+<html lang="zxx">
     <head>
-        <meta charset="utf-8" />
-        <title>
-            {% block title %}
-                {% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}
-            {% endblock %}
-            {% block title_suffix %}
-                {% with self.get_site.site_name as site_name %}
-                    {% if site_name %}- {{ site_name }}{% endif %}
-                {% endwith %}
-            {% endblock %}
-        </title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <!-- color of address bar in mobile browser -->
@@ -39,6 +28,18 @@
         <link rel="stylesheet" href="{% static 'css/plugins/fancybox.min.css' %}">
         <!-- main css -->
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
+       
+        <title>
+            {% block title %}
+                {% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}
+            {% endblock %}
+            {% block title_suffix %}
+                {% with self.get_site.site_name as site_name %}
+                    {% if site_name %}- {{ site_name }}{% endif %}
+                {% endwith %}
+            {% endblock %}
+        </title>
+        
 
         {% block extra_css %}
        
@@ -48,44 +49,73 @@
 
     <body class="{% block body_class %}{% endblock %}">
         {% wagtailuserbar %}
+     <!-- app -->
+  <div class="art-app">
 
+    <!-- mobile top bar -->
+    <div class="art-mobile-top-bar"></div>
+
+    <!-- app wrapper -->
+    <div class="art-app-wrapper">
+
+      <!-- app container end -->
+      <div class="art-app-container">
 
 
        
     {% block content %}{% endblock %}
        
 
+    </div>
+      <!-- app container end -->
 
+    </div>
+    <!-- app wrapper end -->
+    
+    <!-- preloader -->
+    <div class="art-preloader">
+      <!-- preloader content -->
+      <div class="art-preloader-content">
+        <!-- title -->
+        <h4>Kuyeso Rogers</h4>
+        <!-- progressbar -->
+        <div id="preloader" class="art-preloader-load"></div>
+      </div>
+      <!-- preloader content end -->
+    </div>
+    <!-- preloader end --> 
+    
+  </div>
+  <!-- app end -->
 
         
 
   
         {# Global javascript #}
-       
-         <!-- jquery js -->
-        <script src="{% static 'js/plugins/jquery.min.js' %}"></script>
-        <!-- anime js -->
-        <script src="{% static 'js/plugins/anime.min.js' %}"></script>
-        <!-- swiper js -->
-        <script src="{% static 'js/plugins/swiper.min.js' %}"></script>
-        <!-- progressbar js -->
-        <script src="{% static 'js/plugins/progressbar.min.js' %}"></script>
-        <!-- smooth scrollbar js -->
-        <script src="{% static 'js/plugins/smooth-scrollbar.min.js' %}"></script>
-        <!-- overscroll js -->
-        <script src="{% static 'js/plugins/overscroll.min.js' %}"></script>
-        <!-- typing js -->
-        <script src="{% static 'js/plugins/typing.min.js' %}"></script>
-        <!-- isotope js -->
-        <script src="{% static 'js/plugins/isotope.min.js' %}"></script>
-        <!-- fancybox js -->
-        <script src="{% static 'js/plugins/fancybox.min.js' %}"></script>
-        <!-- swup js -->
-        <script src="{% static 'js/plugins/swup.min.js' %}"></script>
+<script src="{% static "js/plugins/jquery.min.js" %}"></script>
+  <!-- anime js -->
+  <script src="{% static "js/plugins/anime.min.js" %}"></script>
+  <!-- swiper js -->
+  <script src="{% static "js/plugins/swiper.min.js" %}"></script>
+  <!-- progressbar js -->
+  <script src="{% static "js/plugins/progressbar.min.js" %}"></script>
+  <!-- smooth scrollbar js -->
+  <script src="{% static "js/plugins/smooth-scrollbar.min.js" %}"></script>
+  <!-- overscroll js -->
+  <script src="{% static "js/plugins/overscroll.min.js" %}"></script>
+  <!-- typing js -->
+  <script src="{% static "js/plugins/typing.min.js" %}"></script>
+  <!-- isotope js -->
+  <script src="{% static "js/plugins/isotope.min.js" %}"></script>
+  <!-- fancybox js -->
+  <script src="{% static "js/plugins/fancybox.min.js" %}"></script>
+  <!-- swup js -->
+  <script src="{% static "js/plugins/swup.min.js" %}"></script>
 
-        <!-- main js -->
-        <script src="{% static 'js/main.js' %}"></script>
-        <script type="text/javascript" src="{% static 'js/core.js' %}"></script>
+  <!-- main js -->
+  <script src="{% static "js/main.js" %}"></script>
+
+        
 
         {% block extra_js %}
         

@@ -1,17 +1,11 @@
+{% extends 'base.html' %}
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load static wagtailadmin_tags %}
 
-<body>
+{% block content %}
+{% load static %}
 
-  <!-- app -->
-  <div class="art-app">
-
-    <!-- mobile top bar -->
-    <div class="art-mobile-top-bar"></div>
-
-    <!-- app wrapper -->
-    <div class="art-app-wrapper">
-
-      <!-- app container end -->
-      <div class="art-app-container">
+ 
 
         <!-- info bar -->
         <div class="art-info-bar">
@@ -30,177 +24,17 @@
             </div>
             <!-- info bar header end -->
 
-            #--------------------include bio-----------------------
+            {% comment %} #--------------------include bio----------------------- {% endcomment %}
+
+            {% for block in self.bio %}
+            {% include_block block %}
+            {% endfor %}
 
             <!-- scroll frame -->
-            <div id="scrollbar2" class="art-scroll-frame">
-
-              <!-- info bar about -->
-              <div class="art-table p-15-15">
-                <!-- about text -->
-                <ul>
-                  <!-- country -->
-                  <li>
-                    <h6>Residence:</h6><span>Canada</span>
-                  </li>
-                  <!-- city -->
-                  <li>
-                    <h6>City:</h6><span>Toronto</span>
-                  </li>
-                  <!-- age -->
-                  <li>
-                    <h6>Age:</h6><span>26</span>
-                  </li>
-                </ul>
-              </div>
-              <!-- info bar about end -->
-
-              <!-- divider -->
-              <div class="art-ls-divider"></div>
-
-              <!-- language skills -->
-              <div class="art-lang-skills p-30-15">
-
-                <!-- skill -->
-                <div class="art-lang-skills-item">
-                  <div id="circleprog1" class="art-cirkle-progress"></div>
-                  <!-- title -->
-                  <h6>French</h6>
-                </div>
-                <!-- skill end -->
-
-                <!-- skill -->
-                <div class="art-lang-skills-item">
-                  <div id="circleprog2" class="art-cirkle-progress"></div>
-                  <!-- title -->
-                  <h6>English</h6>
-                </div>
-                <!-- skill end -->
-
-                <!-- skill -->
-                <div class="art-lang-skills-item">
-                  <div id="circleprog3" class="art-cirkle-progress"></div>
-                  <!-- title -->
-                  <h6>Spanish</h6>
-                </div>
-                <!-- skill end -->
-
-              </div>
-              <!-- language skills end -->
-
-              <!-- divider -->
-              <div class="art-ls-divider"></div>
-
-              <!-- hard skills -->
-              <div class="art-hard-skills p-30-15">
-
-                <!-- skill -->
-                <div class="art-hard-skills-item">
-                  <div class="art-skill-heading">
-                    <!-- title -->
-                    <h6>html</h6>
-                  </div>
-                  <!-- progressbar frame -->
-                  <div class="art-line-progress">
-                    <!-- progressbar -->
-                    <div id="lineprog1"></div>
-                  </div>
-                  <!-- progressbar frame end -->
-                </div>
-                <!-- skill end -->
-
-                <!-- skill -->
-                <div class="art-hard-skills-item">
-                  <div class="art-skill-heading">
-                    <!-- title -->
-                    <h6>CSS</h6>
-                  </div>
-                  <!-- progressbar frame -->
-                  <div class="art-line-progress">
-                    <!-- progressbar -->
-                    <div id="lineprog2"></div>
-                  </div>
-                  <!-- progressbar frame end -->
-                </div>
-                <!-- skill end -->
-
-                <!-- skill -->
-                <div class="art-hard-skills-item">
-                  <div class="art-skill-heading">
-                    <!-- title -->
-                    <h6>Js</h6>
-                  </div>
-                  <!-- progressbar frame -->
-                  <div class="art-line-progress">
-                    <!-- progressbar -->
-                    <div id="lineprog3"></div>
-                  </div>
-                  <!-- progressbar frame end -->
-                </div>
-                <!-- skill end -->
-
-                <!-- skill -->
-                <div class="art-hard-skills-item">
-                  <div class="art-skill-heading">
-                    <!-- title -->
-                    <h6>PHP</h6>
-                  </div>
-                  <!-- progressbar frame -->
-                  <div class="art-line-progress">
-                    <!-- progressbar -->
-                    <div id="lineprog4"></div>
-                  </div>
-                  <!-- progressbar frame end -->
-                </div>
-                <!-- skill end -->
-
-                <!-- skill -->
-                <div class="art-hard-skills-item">
-                  <div class="art-skill-heading">
-                    <!-- title -->
-                    <h6>Wordpress</h6>
-                  </div>
-                  <!-- progressbar frame -->
-                  <div class="art-line-progress">
-                    <!-- progressbar -->
-                    <div id="lineprog5"></div>
-                  </div>
-                  <!-- progressbar frame end -->
-                </div>
-                <!-- skill end -->
-
-              </div>
-              <!-- language skills end -->
-
-              <!-- divider -->
-              <div class="art-ls-divider"></div>
-
-              <!-- knowledge list -->
-              <ul class="art-knowledge-list p-15-0">
-                <!-- list item -->
-                <li>Bootstrap, Materialize</li>
-                <!-- list item -->
-                <li>Stylus, Sass, Less</li>
-                <!-- list item -->
-                <li>Gulp, Webpack, Grunt</li>
-                <!-- list item -->
-                <li>GIT knowledge</li>
-              </ul>
-              <!-- knowledge list end -->
-
-              <!-- divider -->
-              <div class="art-ls-divider"></div>
-
-              <!-- links frame -->
-              <div class="art-links-frame p-15-15">
-
-                <!-- download cv button -->
-                <a href="files/cv.txt" class="art-link" download>Download cv <i class="fas fa-download"></i></a>
-
-              </div>
-              <!-- links frame end -->
-
-            </div>
+           {% comment %} #----------------------------include personal data ----------------------- {% endcomment %}
+            {% for block in self.persoanl_data %}
+            {% include_block block %}
+            {% endfor %}
             <!-- scroll frame end -->
 
             <!-- sidebar social -->
@@ -231,7 +65,7 @@
           <div class="art-curtain"></div>
 
           <!-- top background -->
-          <div class="art-top-bg" style="background-image: url(img/bg.jpg)">
+          <div class="art-top-bg" style="background-image: url({% static 'img/bg.jpg' %})">
             <!-- overlay -->
             <div class="art-top-bg-overlay"></div>
             <!-- overlay end -->
@@ -252,8 +86,9 @@
                   <!-- col -->
                   <div class="col-lg-12">
 
+                    {% image self.banner_image fill-320x320 as img %}
                     <!-- banner -->
-                    <div class="art-a art-banner" style="background-image: url(img/bg.jpg)">
+                    <div class="art-a art-banner" style="background-image: url{{img.url}}">
                       <!-- banner back -->
                       <div class="art-banner-back"></div>
                       <!-- banner dec -->
@@ -263,7 +98,7 @@
                         <!-- main title -->
                         <div class="art-banner-title">
                           <!-- title -->
-                          <h1 class="mb-15">Discover my Amazing <br>Art Space!</h1>
+                          <h1 class="mb-15">{{self.banner_title}} <br>{{self.banner_title_two}}</h1>
                           <!-- suptitle -->
                           <div class="art-lg-text art-code mb-25">&lt;<i>code</i>&gt; I build <span class="txt-rotate" data-period="2000"
                               data-rotate='[ "web interfaces.", "ios and android applications.", "design mocups.", "automation tools." ]'></span>&lt;/<i>code</i>&gt;</div>
@@ -274,7 +109,8 @@
                         </div>
                         <!-- main title end -->
                         <!-- photo -->
-                        <img src="img/face-2.png" class="art-banner-photo" alt="Your Name">
+                        {% image self.photo fill-320x320 as img %}
+                        <img src="{{img.url}}" class="art-banner-photo" alt="{{img.alt}}">
                       </div>
                       <!-- banner overlay end -->
                     </div>
@@ -288,18 +124,40 @@
               </div>
               <!-- container end -->
 
-#--------------------include Records-----------------------
+{% comment %} #--------------------include Records----------------------- {% endcomment %}
 
-#--------------------include My services-----------------------
+            {% for block in self.my_records %}
+            {% include_block block %}
+            {% endfor %}
 
-#--------------------include Price Plan-----------------------
+{% comment %} #--------------------include My services----------------------- {% endcomment %}
 
- #--------------------include Recommendations -----------------------
+            {% for block in self.service %}
+            {% include_block block %}
+            {% endfor %}
 
-#--------------------include Org -----------------------
+{% comment %} #--------------------include Price Plan----------------------- {% endcomment %}
+
+            {% for block in self.price_plan %}
+            {% include_block block %}
+            {% endfor %}
+
+ {% comment %} #--------------------include Recommendations ----------------------- {% endcomment %}
+
+            {% for block in self.recommend %}
+            {% include_block block %}
+            {% endfor %}
+
+{% comment %} #--------------------include Org ----------------------- {% endcomment %}
+            
+            {% for block in self.organisations_logo %}
+            {% include_block block %}
+            {% endfor %}
 
               
-              #--------------------include Footer -----------------------
+{% comment %} #--------------------include Footer ----------------------- {% endcomment %}
+
+            {% include 'footer.html' %}
 
             </div>
             <!-- scroll frame end -->
@@ -312,31 +170,13 @@
 
 
 
-#--------------------include menu -----------------------
+{% comment %} #--------------------include menu ----------------------- {% endcomment %}
+        {% include 'menu.html' %}
 
-
-
-      </div>
-      <!-- app container end -->
-
-    </div>
-    <!-- app wrapper end -->
-
-    <!-- preloader -->
-    <div class="art-preloader">
-      <!-- preloader content -->
-      <div class="art-preloader-content">
-        <!-- title -->
-        <h4>Kuyeso Rogers</h4>
-        <!-- progressbar -->
-        <div id="preloader" class="art-preloader-load"></div>
-      </div>
-      <!-- preloader content end -->
-    </div>
-    <!-- preloader end -->
-
-  </div>
-  <!-- app end -->
 
   
-</body>
+
+   
+
+  
+{% endblock %}

@@ -1,121 +1,168 @@
-{% load wagtailcore_tags wagtailimages_tags %}
-{% load static wagtailadmin_tags %}
-<!-- info bar about -->
-<div class="art-table p-15-15">
-<!-- about text -->
-<ul>
-    <!-- country -->
-    {% for datas in self.data %}
-    <li>
-    <h6>Residence:</h6><span>{{datas.residence}}</span>
-    </li>
-    
-    <!-- city -->
-    <li>
-    <h6>City:</h6><span>{{datas.city}}</span>
-    </li>
-    <!-- age -->
-    <li>
-    <h6>Age:</h6><span>{{datas.age}}</span>
-    </li>
-    {% endfor %}
-</ul>
-</div>
-<!-- info bar about end -->
+             <div id="scrollbar2" class="art-scroll-frame">
 
-<!-- divider -->
-<div class="art-ls-divider"></div>
+              <!-- info bar about -->
+              <div class="art-table p-15-15">
+                <!-- about text -->
+                <ul>
+                  <!-- country -->
+                  <li>
+                    <h6>Residence:</h6><span>Canada</span>
+                  </li>
+                  <!-- city -->
+                  <li>
+                    <h6>City:</h6><span>Toronto</span>
+                  </li>
+                  <!-- age -->
+                  <li>
+                    <h6>Age:</h6><span>26</span>
+                  </li>
+                </ul>
+              </div>
+              <!-- info bar about end -->
 
-<!-- language skills -->
-<div class="art-lang-skills p-30-15">
+              <!-- divider -->
+              <div class="art-ls-divider"></div>
 
-{% for languages in self.language %}
-<!-- skill -->
-<div class="art-lang-skills-item">
-    <div id="circleprog1" class="art-cirkle-progress"></div>
-    <!-- title -->
-    <h6>{{languages.language}}</h6>
-</div>
-<!-- skill end -->
-{% endfor %}
-</div>
-<!-- language skills end -->
+              <!-- language skills -->
+              <div class="art-lang-skills p-30-15">
 
-<!-- divider -->
-<div class="art-ls-divider"></div>
+                <!-- skill -->
+                <div class="art-lang-skills-item">
+                  <div id="circleprog1" class="art-cirkle-progress"></div>
+                  <!-- title -->
+                  <h6>French</h6>
+                </div>
+                <!-- skill end -->
 
-<!-- hard skills -->
-<div class="art-hard-skills p-30-15">
+                <!-- skill -->
+                <div class="art-lang-skills-item">
+                  <div id="circleprog2" class="art-cirkle-progress"></div>
+                  <!-- title -->
+                  <h6>English</h6>
+                </div>
+                <!-- skill end -->
 
+                <!-- skill -->
+                <div class="art-lang-skills-item">
+                  <div id="circleprog3" class="art-cirkle-progress"></div>
+                  <!-- title -->
+                  <h6>Spanish</h6>
+                </div>
+                <!-- skill end -->
 
-{% for programmings in self.programming%}
-<!-- skill -->
-<div class="art-hard-skills-item">
-    <div class="art-skill-heading">
-    <!-- title -->
-    <h6>{{programmings.programming_language}}</h6>
-    </div>
-    <!-- progressbar frame -->
-    <div class="art-line-progress">
-    <!-- progressbar -->
-    <div id="lineprog1"></div>
-    </div>
-    <!-- progressbar frame end -->
-</div>
-<!-- skill end -->
+              </div>
+              <!-- language skills end -->
 
-{% endfor %}
+              <!-- divider -->
+              <div class="art-ls-divider"></div>
 
-</div>
-<!-- language skills end -->
+              <!-- hard skills -->
+              <div class="art-hard-skills p-30-15">
 
-<!-- divider -->
-<div class="art-ls-divider"></div>
+                <!-- skill -->
+                <div class="art-hard-skills-item">
+                  <div class="art-skill-heading">
+                    <!-- title -->
+                    <h6>html</h6>
+                  </div>
+                  <!-- progressbar frame -->
+                  <div class="art-line-progress">
+                    <!-- progressbar -->
+                    <div id="lineprog1"></div>
+                  </div>
+                  <!-- progressbar frame end -->
+                </div>
+                <!-- skill end -->
 
-<!-- hard skills -->
-<div class="art-hard-skills p-30-15">
-{% for frameworks in self.framework %}
-    <!-- skill -->
-<div class="art-hard-skills-item">
-    <div class="art-skill-heading">
-    <!-- title -->
-    <h6>{{frameworks.my_framework}}</h6>
-    </div>
-    <!-- progressbar frame -->
-    <div class="art-line-progress">
-    <!-- progressbar -->
-    <div id="lineprog1"></div>
-    </div>
-    <!-- progressbar frame end -->
-</div>
-<!-- skill end -->
-{% endfor %}
-</div>
-<!-- language skills end -->
+                <!-- skill -->
+                <div class="art-hard-skills-item">
+                  <div class="art-skill-heading">
+                    <!-- title -->
+                    <h6>CSS</h6>
+                  </div>
+                  <!-- progressbar frame -->
+                  <div class="art-line-progress">
+                    <!-- progressbar -->
+                    <div id="lineprog2"></div>
+                  </div>
+                  <!-- progressbar frame end -->
+                </div>
+                <!-- skill end -->
 
+                <!-- skill -->
+                <div class="art-hard-skills-item">
+                  <div class="art-skill-heading">
+                    <!-- title -->
+                    <h6>Js</h6>
+                  </div>
+                  <!-- progressbar frame -->
+                  <div class="art-line-progress">
+                    <!-- progressbar -->
+                    <div id="lineprog3"></div>
+                  </div>
+                  <!-- progressbar frame end -->
+                </div>
+                <!-- skill end -->
 
-<!-- divider -->
-<div class="art-ls-divider"></div>
+                <!-- skill -->
+                <div class="art-hard-skills-item">
+                  <div class="art-skill-heading">
+                    <!-- title -->
+                    <h6>PHP</h6>
+                  </div>
+                  <!-- progressbar frame -->
+                  <div class="art-line-progress">
+                    <!-- progressbar -->
+                    <div id="lineprog4"></div>
+                  </div>
+                  <!-- progressbar frame end -->
+                </div>
+                <!-- skill end -->
 
-{% for additional_skill in self.additional_skills %}
-    <!-- knowledge list -->
-<ul class="art-knowledge-list p-15-0">
-<!-- list item -->
-<li>{{ additional_skill.addtional_skils}}</li>
-<!-- knowledge list end -->
-{% endfor %}
+                <!-- skill -->
+                <div class="art-hard-skills-item">
+                  <div class="art-skill-heading">
+                    <!-- title -->
+                    <h6>Wordpress</h6>
+                  </div>
+                  <!-- progressbar frame -->
+                  <div class="art-line-progress">
+                    <!-- progressbar -->
+                    <div id="lineprog5"></div>
+                  </div>
+                  <!-- progressbar frame end -->
+                </div>
+                <!-- skill end -->
 
+              </div>
+              <!-- language skills end -->
 
-<!-- divider -->
-<div class="art-ls-divider"></div>
+              <!-- divider -->
+              <div class="art-ls-divider"></div>
 
-<!-- links frame -->
-<div class="art-links-frame p-15-15">
+              <!-- knowledge list -->
+              <ul class="art-knowledge-list p-15-0">
+                <!-- list item -->
+                <li>Bootstrap, Materialize</li>
+                <!-- list item -->
+                <li>Stylus, Sass, Less</li>
+                <!-- list item -->
+                <li>Gulp, Webpack, Grunt</li>
+                <!-- list item -->
+                <li>GIT knowledge</li>
+              </ul>
+              <!-- knowledge list end -->
 
-<!-- download cv button -->
-<a href="{% static 'files/Kuyeso_Rogers_Resume.docx'%}" class="art-link" download>Download cv <i class="fas fa-download"></i></a>
+              <!-- divider -->
+              <div class="art-ls-divider"></div>
 
-</div>
-<!-- links frame end -->
+              <!-- links frame -->
+              <div class="art-links-frame p-15-15">
 
+                <!-- download cv button -->
+                <a href="files/cv.txt" class="art-link" download>Download cv <i class="fas fa-download"></i></a>
 
+              </div>
+              <!-- links frame end -->
+
+            </div>
