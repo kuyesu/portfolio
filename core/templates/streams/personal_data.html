@@ -1,36 +1,44 @@
              <div id="scrollbar2" class="art-scroll-frame">
 
+            {% for datas in self.data %}
               <!-- info bar about -->
               <div class="art-table p-15-15">
                 <!-- about text -->
                 <ul>
                   <!-- country -->
                   <li>
-                    <h6>Residence:</h6><span>Canada</span>
+                    <h6>Residence:</h6><span>{{datas.residence}}</span>
                   </li>
                   <!-- city -->
                   <li>
-                    <h6>City:</h6><span>Toronto</span>
+                    <h6>City:</h6><span>{{datas.city}}</span>
                   </li>
                   <!-- age -->
                   <li>
-                    <h6>Age:</h6><span>26</span>
+                    <h6>Age:</h6><span>{{datas.age}}</span>
                   </li>
                 </ul>
               </div>
               <!-- info bar about end -->
-
+              
+            {% endfor %}
               <!-- divider -->
               <div class="art-ls-divider"></div>
-
+              
+            {%for languages in self.language %}
               <!-- language skills -->
               <div class="art-lang-skills p-30-15">
-
+                
                 <!-- skill -->
+
+
+                
+
                 <div class="art-lang-skills-item">
                   <div id="circleprog1" class="art-cirkle-progress"></div>
-                  <!-- title -->
-                  <h6>French</h6>
+            
+                    <!-- title -->
+                  <h6>{{languages.language}}</h6>
                 </div>
                 <!-- skill end -->
 
@@ -52,7 +60,7 @@
 
               </div>
               <!-- language skills end -->
-
+            {% endfor %}
               <!-- divider -->
               <div class="art-ls-divider"></div>
 

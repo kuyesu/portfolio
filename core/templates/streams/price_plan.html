@@ -12,7 +12,7 @@
                       <!-- title frame -->
                       <div class="art-title-frame">
                         <!-- title -->
-                        <h4>Price Plans</h4>
+                        <h4>{{self.title}}</h4>
                       </div>
                       <!-- title frame end -->
                     </div>
@@ -20,118 +20,49 @@
 
                   </div>
                   <!-- col end -->
-
+                {% for plan in self.plans %}
                   <!-- col -->
                   <div class="col-lg-4">
 
                     <!-- price -->
-                    <div class="art-a art-price">
-                      <!-- price body -->
-                      <div class="art-price-body">
-                        <h5 class="mb-30">Starter Price</h5>
-                        <!-- price cost -->
-                        <div class="art-price-cost">
-                          <div class="art-number">FREE<sup>*</sup></div>
-                        </div>
-                        <!-- price cost end -->
-                        <!-- price list -->
-                        <ul class="art-price-list">
-                          <!-- list item -->
-                          <li>Ui Design</li>
-                          <!-- list item -->
-                          <li>Web Development</li>
-                          <!-- list item -->
-                          <li class="art-empty-item">Logo design</li>
-                          <!-- list item -->
-                          <li class="art-empty-item">SEO optimization</li>
-                          <!-- list item -->
-                          <li class="art-empty-item">Wordpress integration</li>
-                        </ul>
-                        <!-- price list end -->
-                        <!-- button -->
-                        <a href="/nazar/arter-demo/contact.html" class="art-link art-color-link art-w-chevron">Order now</a>
-                        <div class="art-asterisk"><sup>*</sup>Free only when ordering paid services</div>
-                      </div>
-                      <!-- price body end -->
-                    </div>
-                    <!-- price end -->
-
-                  </div>
-                  <!-- grid -->
-
-                  <!-- col -->
-                  <div class="col-lg-4">
-
-                    <!-- price -->
+                    {% if plan.popular %}
                     <div class="art-a art-price art-popular-price">
-                      <!-- price body -->
-                      <div class="art-price-body">
-                        <h5 class="mb-30">Hourly payment</h5>
-                        <!-- price cost -->
-                        <div class="art-price-cost">
-                          <div class="art-number"><span>$</span>29<span>h</span></div>
-                        </div>
-                        <!-- price cost end -->
-                        <!-- price list -->
-                        <ul class="art-price-list">
-                          <!-- list item -->
-                          <li>Ui Design</li>
-                          <!-- list item -->
-                          <li>Web Development</li>
-                          <!-- list item -->
-                          <li>Logo design</li>
-                          <!-- list item -->
-                          <li class="art-empty-item">SEO optimization</li>
-                          <!-- list item -->
-                          <li class="art-empty-item">Wordpress integration</li>
-                        </ul>
-                        <!-- price list end -->
-                        <!-- button -->
-                        <a href="/nazar/arter-demo/contact.html" class="art-link art-color-link art-w-chevron">Order now</a>
-                      </div>
-                      <!-- price body end -->
-                    </div>
-                    <!-- price end -->
-
-                  </div>
-                  <!-- col end -->
-
-                  <!-- col -->
-                  <div class="col-lg-4">
-
-                    <!-- price -->
+                    {% else %}
                     <div class="art-a art-price">
+                    {% endif %}
                       <!-- price body -->
                       <div class="art-price-body">
-                        <h5 class="mb-30"> Full time</h5>
+                        <h5 class="mb-30">{{plan.plan_type}}</h5>
                         <!-- price cost -->
                         <div class="art-price-cost">
-                          <div class="art-number"><span>$</span>2999<span>m</span></div>
+                          <div class="art-number"><sup>{{plan.sup}}</sup><span>{{plan.currency}}</span>{{plan.price}}<span>{{plan.working_rate}}</span></div>
                         </div>
                         <!-- price cost end -->
                         <!-- price list -->
+                        {% for plan_item in plan.plan_items %}
                         <ul class="art-price-list">
                           <!-- list item -->
-                          <li>Ui Design</li>
-                          <!-- list item -->
-                          <li>Web Development</li>
-                          <!-- list item -->
-                          <li>Logo design</li>
-                          <!-- list item -->
-                          <li>SEO optimization</li>
-                          <!-- list item -->
-                          <li>Wordpress integration</li>
+                          {% if plan_item.offered %}
+                          <li>{{ plan_item.item_name }}</li>
+                          
+                          {% else %}
+                          <li class="art-empty-item">{{ plan_item.item_name }}</li>
+                          {% endif %}
+                          
                         </ul>
+                        {% endfor %}
                         <!-- price list end -->
                         <!-- button -->
                         <a href="/nazar/arter-demo/contact.html" class="art-link art-color-link art-w-chevron">Order now</a>
+                        {% if plan.free_statement %}<div class="art-asterisk"><sup>*</sup>{{plan.free_statement}}</div>{% endif %}
                       </div>
                       <!-- price body end -->
                     </div>
                     <!-- price end -->
 
                   </div>
-                  <!-- col end -->
+                  {% endfor %}
+                  <!-- grid -->
 
                 </div>
                 <!-- row end -->
