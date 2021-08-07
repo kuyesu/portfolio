@@ -13,7 +13,7 @@ class RogersBio(blocks.StructBlock):
     role = blocks.ListBlock(
         blocks.StructBlock(
             [
-                ("role", blocks.CharBlock(required=True, max_length=20)),
+                ("my_role", blocks.CharBlock(required=True, max_length=20)),
                 ("email", blocks.EmailBlock(required=True))
             ]
         )
@@ -41,6 +41,7 @@ class PersonalData(blocks.StructBlock):
         blocks.StructBlock(
             [
                 ("language", blocks.CharBlock(required=True, max_length=15)),
+                ("rating", blocks.IntegerBlock(max_value=100)),
             ]
         )
     )
@@ -49,6 +50,24 @@ class PersonalData(blocks.StructBlock):
         blocks.StructBlock(
             [
                 ("programming_language", blocks.CharBlock(required=True, max_length=20)),
+                ("rating", blocks.IntegerBlock(max_value=100)),
+            ]
+        )
+    )
+    
+    framework = blocks.ListBlock(
+        blocks.StructBlock(
+            [
+                ("my_framework", blocks.CharBlock(required=True, max_length=20)),
+                ("rating", blocks.IntegerBlock(max_value=100)),
+            ]
+        )
+    )
+    
+    additional_skills = blocks.ListBlock(
+        blocks.StructBlock(
+            [
+                ("addtional_skils", blocks.CharBlock(required=True, max_length=20))
             ]
         )
     )
@@ -130,6 +149,7 @@ class PricePlan(blocks.StructBlock):
         
 
 class Recommendations(blocks.StructBlock):
+    title = blocks.CharBlock(required=True, max_length=20)
     
     recommendations = blocks.ListBlock(
         blocks.StructBlock(

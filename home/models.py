@@ -62,7 +62,7 @@ class HomePage(Page):
     )
     
     
-    records = StreamField(
+    my_records = StreamField(
         [
             ("record_data", blocks.RecordsData()),
         ],
@@ -139,7 +139,7 @@ class HomePage(Page):
     records_panel = [
         MultiFieldPanel(
             [
-                StreamFieldPanel("records"),
+                StreamFieldPanel("my_records"),
             ],
             heading = "Records",
         ),
