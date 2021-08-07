@@ -4,6 +4,7 @@ from wagtail.images.blocks import ImageChooserBlock
 
 
 
+
 class RogersBio(blocks.StructBlock):
 
     first_name = blocks.CharBlock(required=True, help_text = "First Name")
@@ -104,6 +105,7 @@ class MyServices(blocks.StructBlock):
             [
                 ("service", blocks.CharBlock(required=True, max_length=30)),
                 ("description", blocks.CharBlock(required = True, max_length=150)),
+                ("button_page", blocks.PageChooserBlock(required=False, help_text='If selected, this url will be used first')),
                 (
                     "button_url",
                     blocks.URLBlock(
@@ -126,16 +128,24 @@ class PricePlan(blocks.StructBlock):
     plans = blocks.ListBlock(
         blocks.StructBlock(
             [
-                ("pan_type", blocks.CharBlock(required=True)),
-                ("pan_subtitle", blocks.ListBlock(
+                ("plan_type", blocks.CharBlock(required=True)),
+                ("price", blocks.CharBlock(required=True)),
+                ("popular", blocks.BooleanBlock(required=False)),
+                ("working_rate", blocks.ChoiceBlock(choices=[("h", "h"), ("m", "m"), ("", "")], required=False)),
+                ("currency", blocks.ChoiceBlock(choices=[("shs", "shs"), ("$", "$"), ("", "")], required=False)),
+                ("sup", blocks.ChoiceBlock(choices=[("*", "*"), ("", "")], required=False)),
+                ("free_statement", blocks.CharBlock(required=False)),
+                ("plan_items", blocks.ListBlock(
                     blocks.StructBlock(
                         [
-                            ("item_name", blocks.CharBlock(required=True))
+                            ("item_name", blocks.CharBlock(required=True)),
+                            ("offered", blocks.BooleanBlock(required=False)),
                         ]))),
+                ("button_page", blocks.PageChooserBlock(required=False, help_text='If selected, this url will be used first')),
                 (
                     "button_url",
                     blocks.URLBlock(
-                        required=True,
+                        required=False,
                     )
                 ),
             ]
@@ -157,7 +167,7 @@ class Recommendations(blocks.StructBlock):
                 ("Name", blocks.CharBlock(required=True, max_length=45)),
                 ("Job_Title", blocks.CharBlock(required=True, max_length=45)),
                 ("Photo", ImageChooserBlock(required=True)),
-                ("Stament", blocks.CharBlock(required=True, max_length=45)),
+                ("Stament", blocks.CharBlock(required=True, max_length=200)),
                 ("star", blocks.IntegerBlock(max_value=5))
             ]
         )
@@ -313,3 +323,5 @@ class Interests(blocks.StructBlock):
         template = "streams/interest.html"
         icon = "edit"
         label = "Interest"
+        
+        

@@ -1,36 +1,21 @@
+ {% load wagtailcore_tags wagtailimages_tags %}
  <!-- container -->
               <div class="container-fluid">
 
                 <!-- row -->
                 <div class="row">
-
+                  {% for organisations in self.organisation %}
                   <!-- col -->
                   <div class="col-6 col-lg-3">
                     <!-- brand -->
-                    <img class="art-brand" src="img/brands/1.png" alt="brand">
+                    {% image organisations.Photo fill-320x320 as img %}
+                    <img class="art-brand" src="{{ img.url }}" alt="{{ img.url }}">
+                    <h5 class="mb-30">{{organisations.title}}</h5>
                   </div>
+                  
                   <!-- col end -->
+                  {% endfor %}
 
-                  <!-- col -->
-                  <div class="col-6 col-lg-3">
-                    <!-- brand -->
-                    <img class="art-brand" src="img/brands/2.png" alt="brand">
-                  </div>
-                  <!-- col end -->
-
-                  <!-- col -->
-                  <div class="col-6 col-lg-3">
-                    <!-- brand -->
-                    <img class="art-brand" src="img/brands/3.png" alt="brand">
-                  </div>
-                  <!-- col end -->
-
-                  <!-- col -->
-                  <div class="col-6 col-lg-3">
-                    <!-- brand -->
-                    <img class="art-brand" src="img/brands/1.png" alt="brand">
-                  </div>
-                  <!-- col end -->
 
                 </div>
                 <!-- row end -->

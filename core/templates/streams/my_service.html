@@ -12,7 +12,7 @@
                       <!-- title frame -->
                       <div class="art-title-frame">
                         <!-- title -->
-                        <h4>My Services</h4>
+                        <h4>{{self.title}}</h4>
                       </div>
                       <!-- title frame end -->
                     </div>
@@ -21,6 +21,7 @@
                   </div>
                   <!-- col end -->
 
+                  {% for myservice in self.my_services %}
                   <!-- col -->
                   <div class="col-lg-4 col-md-6">
 
@@ -29,11 +30,11 @@
                       <!-- service content -->
                       <div class="art-service-ib-content">
                         <!-- title -->
-                        <h5 class="mb-15">Web Development</h5>
+                        <h5 class="mb-15">{{myservice.service}}</h5>
                         <!-- text -->
-                        <div class="mb-15">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus esse commodi deserunt vitae, vero quasi! Veniam quaerat tenetur pariatur doloribus.</div>
+                        <div class="mb-15">{{myservice.description}}</div>
                         <!-- button -->
-                        <div class="art-buttons-frame"><a href="/nazar/arter-demo/contact.html" class="art-link art-color-link art-w-chevron">Order now</a></div>
+                        <div class="art-buttons-frame"><a href="{{myservice.button_page.url}}" class="art-link art-color-link art-w-chevron">Order now</a></div>
                       </div>
                       <!-- service content end -->
                     </div>
@@ -41,90 +42,7 @@
 
                   </div>
                   <!-- col end -->
-
-                  <!-- col -->
-                  <div class="col-lg-4 col-md-6">
-
-                    <!-- service -->
-                    <div class="art-a art-service-icon-box">
-                      <!-- service content -->
-                      <div class="art-service-ib-content">
-                        <!-- title -->
-                        <h5 class="mb-15">UI/UX Design</h5>
-                        <!-- text -->
-                        <div class="mb-15">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus esse commodi deserunt vitae, vero quasi! Veniam quaerat tenetur pariatur doloribus.</div>
-                        <!-- button -->
-                        <div class="art-buttons-frame"><a href="/nazar/arter-demo/contact.html" class="art-link art-color-link art-w-chevron">Order now</a></div>
-                      </div>
-                      <!-- service content end -->
-                    </div>
-                    <!-- service end -->
-
-                  </div>
-                  <!-- col end -->
-
-                  <!-- col -->
-                  <div class="col-lg-4 col-md-6">
-
-                    <!-- service -->
-                    <div class="art-a art-service-icon-box">
-                      <!-- service content -->
-                      <div class="art-service-ib-content">
-                        <!-- title -->
-                        <h5 class="mb-15">Sound Design</h5>
-                        <!-- text -->
-                        <div class="mb-15">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus esse commodi deserunt vitae, vero quasi! Veniam quaerat tenetur pariatur doloribus.</div>
-                        <!-- button -->
-                        <div class="art-buttons-frame"><a href="/nazar/arter-demo/contact.html" class="art-link art-color-link art-w-chevron">Order now</a></div>
-                      </div>
-                      <!-- service content end -->
-                    </div>
-                    <!-- service end -->
-
-                  </div>
-                  <!-- col end -->
-
-                  <!-- col -->
-                  <div class="col-lg-4 col-md-6">
-
-                    <!-- service -->
-                    <div class="art-a art-service-icon-box">
-                      <!-- service content -->
-                      <div class="art-service-ib-content">
-                        <!-- title -->
-                        <h5 class="mb-15">Game Design</h5>
-                        <!-- text -->
-                        <div class="mb-15">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus esse commodi deserunt vitae, vero quasi! Veniam quaerat tenetur pariatur doloribus.</div>
-                        <!-- button -->
-                        <div class="art-buttons-frame"><a href="/nazar/arter-demo/contact.html" class="art-link art-color-link art-w-chevron">Order now</a></div>
-                      </div>
-                      <!-- service content end -->
-                    </div>
-                    <!-- service end -->
-
-                  </div>
-                  <!-- col end -->
-
-                  <!-- col -->
-                  <div class="col-lg-4 col-md-6">
-
-                    <!-- service -->
-                    <div class="art-a art-service-icon-box">
-                      <!-- service content -->
-                      <div class="art-service-ib-content">
-                        <!-- title -->
-                        <h5 class="mb-15">Advertising</h5>
-                        <!-- text -->
-                        <div class="mb-15">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus esse commodi deserunt vitae, vero quasi! Veniam quaerat tenetur pariatur doloribus.</div>
-                        <!-- button -->
-                        <div class="art-buttons-frame"><a href="/nazar/arter-demo/contact.html" class="art-link art-color-link art-w-chevron">Order now</a></div>
-                      </div>
-                      <!-- service content end -->
-                    </div>
-                    <!-- service end -->
-
-                  </div>
-                  <!-- col end -->
+                {% endfor %}
 
                 </div>
                 <!-- row end -->
