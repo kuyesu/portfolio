@@ -202,6 +202,6 @@ class HomePage(Page):
         verbose_name_plural = "Home Pages"
         
     def get_admin_display_title(self):
-        return "Kuyeso Rogers Goodman Dashboard"
+        return "Home Page"
         
         
