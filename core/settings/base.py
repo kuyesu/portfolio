@@ -27,6 +27,10 @@ INSTALLED_APPS = [
     'home',
     'search',
     'portfolio',
+    'contact',
+    
+    
+    'widget_tweaks',
 
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
@@ -42,6 +46,9 @@ INSTALLED_APPS = [
 
     'modelcluster',
     'taggit',
+    
+    'captcha',
+    'wagtailcaptcha',
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -161,3 +168,7 @@ WAGTAIL_SITE_NAME = "core"
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
 BASE_URL = 'http://example.com'
+
+RECAPTCHA_PUBLIC_KEY = "6LdrS-kbAAAAABAACvCN4NVMvlD0N7Unu6cQp1BG"
+RECAPTCHA_PRIVATE_KEY = "6LdrS-kbAAAAAPOUSYvqXN2iu9rf7gvfNpmi5x1t"
+NORECAPTCHA = True

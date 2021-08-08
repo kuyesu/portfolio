@@ -1,0 +1,274 @@
+{% extends 'base.html' %}
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load static wagtailadmin_tags %}
+{% load static wagtailcore_tags widget_tweaks %}
+
+{% block content %}
+{% load static %}
+
+
+ 
+        <!-- info bar -->
+        <div class="art-info-bar">
+
+          <!-- menu bar frame -->
+          <div class="art-info-bar-frame">
+
+            <!-- info bar header -->
+            <div class="art-info-bar-header">
+              <!-- info bar button -->
+              <a class="art-info-bar-btn" href="#.">
+                <!-- icon -->
+                <i class="fas fa-ellipsis-v"></i>
+              </a>
+              <!-- info bar button end -->
+            </div>
+            <!-- info bar header end -->
+
+            <!-- info bar header -->
+            {% for entry in home_menu %}
+                {{entry.bio}}
+            {% endfor %}
+            <!-- info bar header end -->
+
+            <!-- scroll frame -->
+            {% for block in home_menu %}
+                {{block.persoanl_data}}
+            
+            {% endfor %}
+
+            <!-- scroll frame end -->
+
+            <!-- sidebar social -->
+            {% include 'social.html' %}
+            <!-- sidebar social end -->
+
+          </div>
+          <!-- menu bar frame end -->
+
+        </div>
+        <!-- info bar end -->
+
+        <!-- content -->
+        <div class="art-content">
+
+          <!-- curtain -->
+          <div class="art-curtain"></div>
+
+          <!-- top background -->
+          <div class="art-top-bg" style="background-image: url({% static 'img/bg.jpg' %})">
+            <!-- overlay -->
+            <div class="art-top-bg-overlay"></div>
+            <!-- overlay end -->
+          </div>
+          <!-- top background end -->
+
+
+          <!-- swup container -->
+          <div class="transition-fade" id="swup">
+
+            <!-- scroll frame -->
+            <div id="scrollbar" class="art-scroll-frame">
+
+              <!-- container -->
+              <div class="container-fluid">
+
+                <!-- row -->
+                <div class="row p-30-0">
+
+                  <!-- col -->
+                  <div class="col-lg-12">
+
+                    <!-- section title -->
+                    <div class="art-section-title">
+                      <!-- title frame -->
+                      <div class="art-title-frame">
+                        <!-- title -->
+                        <h4>Contact information</h4>
+                      </div>
+                      <!-- title frame end -->
+                    </div>
+                    <!-- section title end -->
+
+                  </div>
+                  <!-- col end -->
+                  <!-- col -->
+                  <div class="col-lg-4">
+                    <!-- contact card -->
+                    <div class="art-a art-card">
+                      <div class="art-table p-15-15">
+                        <ul>
+                          <li>
+                            <h6>Country:</h6><span>Canada</span>
+                          </li>
+                          <li>
+                            <h6>City:</h6><span>Toronto</span>
+                          </li>
+
+                          <li>
+                            <h6>Streat:</h6><span>20 Dellbank Rd</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <!-- contact card end -->
+                  </div>
+                  <!-- col end -->
+                  <!-- col -->
+                  <div class="col-lg-4">
+                    <!-- contact card -->
+                    <div class="art-a art-card">
+                      <div class="art-table p-15-15">
+                        <ul>
+                          <li>
+                            <h6><a href="#." target="_blank"><i class="fab fa-mail"></i></a></h6><span>carter.inbox@mail.com</span>
+                          </li>
+                          <li>
+                            <h6><a href="#." target="_blank"><i class="fab fa-twitter"></i></a></h6><span>@arter</span>
+                          </li>
+                          <li>
+                            <h6><a href="#." target="_blank"><i class="fab fa-whatsapp"></i></a></h6><span>Arter</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <!-- contact card end -->
+                  </div>
+                  <!-- col end -->
+                  <!-- col -->
+                  <div class="col-lg-4">
+                    <!-- contact card -->
+                    <div class="art-a art-card">
+                      <div class="art-table p-15-15">
+                        <ul>
+                          <li>
+                            <h6>Support:</h6><span>+78 (098) 333 11 22</span>
+                          </li>
+                          <li>
+                            <h6>Office:</h6><span>+78 (098) 326 11 22</span>
+                          </li>
+                          <li>
+                            <h6>Personal:</h6><span>+78 (077) 114 26 53</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <!-- contact card end -->
+
+                  </div>
+                  <!-- col end -->
+
+                 <!-- col -->
+                  <div class="col-lg-12">
+                    <!-- contact card -->
+                    <div class="art-a art-card">
+                      <div class="art-table p-15-15">
+                        <ul>
+                          <li>
+                            <h6>Personal:</h6><span>+78 (077) 114 26 53</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <!-- contact card end -->
+
+                  </div>
+                  <!-- col end -->
+
+
+                  <!-- col -->
+                  <div class="col-lg-12">
+
+                    <!-- section title -->
+                    <div class="art-section-title">
+                      <!-- title frame -->
+                      <div class="art-title-frame">
+                        <!-- title -->
+                        <h4>Get in touch</h4>
+                      </div>
+                      <!-- title frame end -->
+                    </div>
+                    <!-- section title end -->
+
+                    <!-- contact form frame -->
+                    <div class="art-a art-card">
+
+                      <!-- contact form -->
+                      <form id="form" class="art-contact-form" action="{% pageurl page %}" method="POST">
+                        <!-- form field -->
+                       
+                        {% csrf_token %}
+                        
+                        
+                        <div class="art-form-field">
+                        {% for field in form.visible_fields %}
+                            <div class="art-form-field">
+                        
+                            {{ field.label_tag }}
+                            {% render_field field class+="form-control" %}
+                            </div>
+                        
+                        {% endfor %}
+                         </div>
+                        
+
+                        {% if form.non_field_errors %}
+                        
+                        <div class="art-form-field" role="alert">
+
+                        
+
+                            {% for error in form.non_field_errors %}
+                            {{ error }}
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                        
+
+                       
+                       
+                        <!-- button -->
+                        <div class="art-submit-frame">
+                          <button class="art-btn art-btn-md art-submit" type="submit"><span>Send message</span></button>
+                          <!-- success -->
+                          <div class="art-success">Success <i class="fas fa-check"></i></div>
+                        </div>
+                      </form>
+                      <!-- contact form end -->
+
+                    </div>
+                    <!-- contact form frame end -->
+
+                  </div>
+                  <!-- col end -->
+
+                </div>
+                <!-- row end -->
+
+              </div>
+              <!-- container end -->
+
+              
+
+
+              <!-- footer -->
+              {% comment %} #--------------------include Footer ----------------------- {% endcomment %}
+
+            {% include 'footer.html' %}
+              <!-- footer end -->
+
+            </div>
+            <!-- scroll frame end -->
+
+          </div>
+          <!-- swup container end -->
+
+        </div>
+       
+        <!-- content end -->
+{% comment %} #--------------------include menu ----------------------- {% endcomment %}
+        {% include 'menu.html' %}
+
+
+
+{% endblock %}
