@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'search',
     'portfolio',
     'contact',
+    'academic',
     
     
     'widget_tweaks',

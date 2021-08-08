@@ -1,6 +1,7 @@
 from wagtail.core import blocks
 from wagtail.core.templatetags.wagtailcore_tags import richtext
 from wagtail.images.blocks import ImageChooserBlock
+from wagtail.documents.blocks import DocumentChooserBlock
 
 
 
@@ -325,3 +326,23 @@ class Interests(blocks.StructBlock):
         label = "Interest"
         
         
+class RogersDocuments(blocks.StructBlock):
+    
+    title = blocks.CharBlock(required=True, max_length=15)
+    
+    mydoc = blocks.ListBlock(
+        blocks.StructBlock(
+            [
+                ("institution", blocks.CharBlock(required=True, max_length=100)),
+                ("course", blocks.CharBlock(required=True, max_length=100)),
+                ("year", blocks.DateBlock(required=True, max_length=10)),
+                ("doc", DocumentChooserBlock(required=True))
+            ]
+        )
+    )
+    
+    class Meta:
+        template = "streams/acad.html"
+        icon = "edit"
+        label = "Academic"
+    
