@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'portfolio',
     'contact',
     'academic',
+    'dashboard',
     
     
     'widget_tweaks',
