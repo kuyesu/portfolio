@@ -1,3 +1,4 @@
+from django.db import models
 from wagtail.core import blocks
 from wagtail.core.templatetags.wagtailcore_tags import richtext
 from wagtail.images.blocks import ImageChooserBlock
@@ -337,10 +338,16 @@ class RogersDocuments(blocks.StructBlock):
                 ("course", blocks.CharBlock(required=True, max_length=100)),
                 ("year", blocks.DateBlock(required=True, max_length=10)),
                 ("doc", DocumentChooserBlock(required=True))
+                # ("doc", blocks.RichTextBlock(required=True))
+                # document = models.ForeignKey( 'wagtaildocs.Document', blank=True, null=True, on_delete=models.SET_NULL, related_name='+' )
+                # ('doc', models.ForeignKey( 'wagtaildocs.Document', blank=True, null=True, on_delete=models.SET_NULL, related_name='+' ))
             ]
         )
     )
     
+
+
+
     class Meta:
         template = "streams/acad.html"
         icon = "edit"

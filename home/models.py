@@ -19,6 +19,15 @@ class HomePage(Page):
     """This is the landing page for the portfolio"""
     template = "home/home_page.html"
     
+    subpage_types = [
+        'academic.AcademicPage',
+        'contact.ContactPage',
+        'portfolio.PortFolioPage',
+    ]
+    parent_page_type = [
+        'wagtailcore.Page'
+    ]
+    
     banner_title = models.CharField(max_length=30, blank=False, null=True)
     banner_title_two = models.CharField(max_length=30, blank=False, null=True)
     banner_subtitle = RichTextField(features=["bold", "italic", "link"], blank = False, null=True)

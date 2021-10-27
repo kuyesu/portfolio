@@ -1,9 +1,6 @@
 from django.shortcuts import render
 
 # Create your views here.
-from django.shortcuts import render
-
-# Create your views here.
 from wagtail.documents.views import serve
 
 
@@ -22,5 +19,3 @@ def view_document(request, document_id, document_filename):
 
     # Return the response
     return response
-
-

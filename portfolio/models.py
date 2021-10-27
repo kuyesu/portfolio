@@ -11,7 +11,7 @@ from wagtail.admin.edit_handlers import (
     ObjectList
 )
 
-class PortFolio(Page):
+class PortFolioPage(Page):
     
     
     Experinces = StreamField(
@@ -146,3 +146,6 @@ class PortFolio(Page):
             ObjectList(interest_panel, heading = "Interest")
         ]
     )
+    
+    
+    

@@ -8,7 +8,18 @@ from wagtail.documents import urls as wagtaildocs_urls
 
 from search import views as search_views
 
+from django.urls import include, path, re_path
+# ...
+from cores.views import view_document
+from academic.views import view_document
+
+
+
+
 urlpatterns = [
+    
+    path('documents/', include('wagtail.documents.urls')),
+    re_path(r'^document/view/(\d+)/(.*)$', view_document),
     path('django-admin/', admin.site.urls),
 
     path('admin/', include(wagtailadmin_urls)),
